@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.3.1/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a new album</title>
+</head>
+<body>
+<div th:replace="template"></div>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">Add Album</h1>
+           <form th:action="@{saveAlbum}" method="post">
+					<div class="form-group">
+						<label class="control-label" hidden>Album Id :</label>
+						<input type="hidden" name="AlbumId" class="form-control" th:value="${album.AlbumId}" />
+					</div>
+						<div class="form-group">
+							<label class="control-label">Album Name:</label>
+							<input type="text" name="AlbumName" class="form-control"
+								th:value="${album.AlbumName}" />
+							<span th:errors=${album.AlbumName} class="text-danger"> </span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Album Artist:</label>
+							<input type="text" name="AlbumArtist" class="form-control"
+								th:value="${album.AlbumArtist}" />
+							<span th:errors=${album.AlbumArtist} class="text-danger"> </span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Album Price:</label>
+							<input type="text" name="albumPrice" class="form-control"
+								th:value="${album.AlbumPrice}" />
+							<span th:errors=${album.AlbumPrice} class="text-danger"> </span>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Album Description:</label>
+							<input type="text" name="AlbumDescription" class="form-control"
+								th:value="${album.AlbumDescription}" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Creation Date :</label>
+							<input type="date" name="AlbumReleaseDate" class="form-control"
+								th:value="${album.AlbumReleaseDate}" />
+							<span th:errors=${album.AlbumReleaseDate} class="text-danger"> </span>
+						</div>
+						<div>
+							<button type="submit" class="btn btn-primary">Ajouter</button>
+						</div>
+					</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
